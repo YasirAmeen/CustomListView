@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import yasirameen.com.listviewclass.R;
@@ -35,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
         _lv = (ListView) findViewById(R.id.myList);
         _lv.setAdapter(new WhatsappAdapter(this));
+
+        _lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+               /* if(position == 0) {
+
+                }*/
+
+               String name = WhatsappAdapter.name[position];
+                Snackbar.make(view, "Thank you " +name, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override

@@ -17,7 +17,7 @@ import yasirameen.com.listviewclass.R;
 public class WhatsappAdapter extends BaseAdapter {
 
 
-    public String[] name = {
+    public static String[] name = {
 
             "Ehsan ilahi",
             "Adeel Nazar",
@@ -73,13 +73,26 @@ public class WhatsappAdapter extends BaseAdapter {
 
     };
 
+    public int[] messageCount = {
+
+            2,
+            0,
+            0,
+            12,
+            4,
+            3,
+            0,
+            0,
+            0
+    };
+
     private Context context;
     private LayoutInflater inflater = null;
 
 
-    public WhatsappAdapter(Context context) {
+    public WhatsappAdapter(Context ctx) {
 
-        this.context = context;
+        this.context = ctx;
         inflater = LayoutInflater.from(context);
 
     }
@@ -112,6 +125,7 @@ public class WhatsappAdapter extends BaseAdapter {
             holder._message = (TextView) convertView.findViewById(R.id.message);
             holder._name = (TextView) convertView.findViewById(R.id.name);
             holder._time = (TextView) convertView.findViewById(R.id.time);
+            holder._count_badge = (TextView) convertView.findViewById(R.id.count_badge);
             convertView.setTag(holder);
         }
         else {
@@ -125,7 +139,19 @@ public class WhatsappAdapter extends BaseAdapter {
         holder._time.setText(time[position]);
         holder._message.setText(message[position]);
 
+        if(messageCount[position] != 0) {
+            holder._count_badge.setText(""+messageCount[position]);
+        }
 
+
+
+        holder._profile_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
 
         return convertView;
     }
@@ -136,6 +162,7 @@ public class WhatsappAdapter extends BaseAdapter {
         TextView _name;
         TextView _message;
         TextView _time;
+        TextView _count_badge;
 
     }
 }

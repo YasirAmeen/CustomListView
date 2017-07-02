@@ -31,12 +31,17 @@
 
         <TextView
             android:id="@+id/message"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/name"
             android:layout_alignStart="@+id/name"
             android:layout_below="@+id/name"
-            android:text="Sir what is iming of the today class" />
+            android:layout_marginRight="10dp"
+            android:lines="1"
+            android:ellipsize="end"
+            android:text="Sir what is iming of the today class"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2" />
 
         <TextView
             android:id="@+id/time"
@@ -50,7 +55,24 @@
             android:layout_alignTop="@+id/name"
             android:text="YESTERDAY" />
 
+        <TextView
+            android:id="@+id/count_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="20dp"
+            android:textColor="#fff"
+
+            android:gravity="center"
+            android:textSize="10sp"
+            android:background="@drawable/circular_button"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="15dp"
+            android:text="6" />
     </RelativeLayout>
+
+
 
 
 </RelativeLayout>
